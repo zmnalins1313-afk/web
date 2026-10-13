@@ -6,7 +6,7 @@ let input = process.argv.slice(3);
 let controllers = [
     {
         name: "sum",
-        func: function (a, b){
+        func: function (input){
             console.log("sum is:", Number(input[0]) + Number(input[1]));
         }
     },

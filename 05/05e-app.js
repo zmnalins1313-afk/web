@@ -33,7 +33,7 @@ app.get("delete", function (request, response){
 app.get("signup", function (request, response) {
 
     console.log(request.data);
-    let users = "";
+
 
     readFile("db.json", function(err, data){
         if(err){
@@ -44,7 +44,11 @@ app.get("signup", function (request, response) {
             console.log("readFile done");
 
             response.writeHead(200);
-            users = data.toString() + request.data;
+            let users = JSON.stringify(data);
+            users.users.push(JSON.parse(request.data));
+
+
+
             writeFile("db.json", users, function(err) {
 
                 if (err) {
